@@ -1,0 +1,6 @@
+Hello movements:
+<br>
+<% @movements.each do |movement|%>
+  <%="Type: #{movement.type}, Amount: #{movement.amount}, Description: #{movement.description}"%>
+  <br>
+<% end %>

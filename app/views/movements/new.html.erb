@@ -1,0 +1,29 @@
+<h1>New Movement</h1>
+
+<div class="row">
+  <%=form_for :movement, url: movements_path, method: :post do |f| %>
+      <div class="row">
+        <div class="input-field col s6">
+          <%=f.collection_select :type, Movement::TYPES, :itself, :itself, {}, { class: 'validate' }%>
+          <%=f.label :type, 'Type' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%=f.text_field :amount, { class: 'validate' }%>
+          <%=f.label :amount, 'Amount' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%=f.text_area :description, { class: 'validate materialize-textarea' }%>
+          <%=f.label :description, 'Description' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%=button_tag :save, class: 'waves-effect btn' %>
+        </div>
+      </div>
+  <%end%>
+</div>
