@@ -17,6 +17,4 @@ test:
 
 production:
   <<: *default
-  database: registro_gastos_production
-  username: registro_gastos
-  password: <%= ENV['REGISTRO_GASTOS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
