@@ -1,7 +1,7 @@
 <h1>Edit Movement</h1>
 
 <div class="row">
-  <%=form_for :@movement, url: movements_path, method: :post do |f| %>
+  <%=form_for @movement, url: movement_path(@movement), method: :patch do |f| %>
       <div class="row">
         <div class="input-field col s12">
           <%=f.collection_select :type, Movement::TYPES, :itself, :itself, {}, { class: 'validate' }%>

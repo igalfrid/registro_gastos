@@ -1,24 +1,33 @@
 class MovementsController < ApplicationController
 
+  before_action :load_movement, only: [:show, :edit, :update, :destroy]
+
   def index
     @movements = Movement.all
   end
 
   def create
-    Movement.create!(movement_params)
+    Movement.create!(permitted_params)
     redirect_to movements_path
   end
 
-  def show
-    @movement = Movement.find(params[:id])
+  def update
+    @movement.update! permitted_params
+    redirect_to movements_path
   end
 
-  def edit
-    @movement = Movement.find(params[:id])
+  def destroy
+    @movement.destroy
+    redirect_to movements_path
   end
 
   private
-    def movement_params
-      params.require(:movement).permit(:type, :amount, :description)
-    end
+
+  def permitted_params
+    params.require(:movement).permit(:type, :amount, :description)
+  end
+
+  def load_movement
+    @movement = Movement.find(params[:id])
+  end
 end

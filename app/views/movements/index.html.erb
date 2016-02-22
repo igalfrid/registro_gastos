@@ -1,3 +1,7 @@
+<HEAD>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</HEAD>
+
 <h4>Movements</h4>
 <table class="striped">
   <thead>
@@ -17,8 +21,9 @@
     <td><%=movement.description%></td>
     <td><%=movement.amount%></td>
     <td>
-      <%= link_to 'Show', movement %>
-      <%= link_to 'Edit', edit_movement_path(movement) %>
+      <%= show_button_for movement %>
+      <%= edit_button_for edit_movement_path(movement) %>
+      <%= remove_button_for movement_path(movement.id) %>
     </td>
   </tr>
   <% end %>
