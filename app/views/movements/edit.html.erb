@@ -1,7 +1,7 @@
-<h1>New Movement</h1>
+<h1>Edit Movement</h1>
 
 <div class="row">
-  <%=form_for :movement, url: movements_path, method: :post do |f| %>
+  <%=form_for :@movement, url: movements_path, method: :post do |f| %>
       <div class="row">
         <div class="input-field col s12">
           <%=f.collection_select :type, Movement::TYPES, :itself, :itself, {}, { class: 'validate' }%>
@@ -10,7 +10,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <%=f.text_field :amount, { class: 'validate' }%>
+          <%=f.text_field :amount, { class: 'form-control' }%>
           <%=f.label :amount, 'Amount' %>
         </div>
       </div>
